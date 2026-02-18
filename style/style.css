@@ -1,7 +1,9 @@
 :root {
-    --cor-principal-roxo01: rgba(78, 70, 229, 0.9); /*roxo claro*/
-    --cor-principal-roxo02: rgba(21, 16, 124, 0.9); /*roxo escuro*/
-    --cor-teste: rgb(255, 0, 0);
+    --cor-principal-primaria: rgb(15, 48, 139); /*roxo claro*/
+    --cor-principal-escuro: rgba(26, 55, 109, 0.9); /*roxo escuro*/
+    --cor-principal-brilho:  rgba(21, 63, 180, 0.9);/*roxo escuro*/
+    --cor-200: rgba(40, 145, 54, 0.9);
+    --cor-40X: rgba(143, 145, 40, 0.9);
 }
 
 /* =====  Geral ===== */
@@ -19,12 +21,14 @@ header {
     display: flex;
     justify-content: space-around;
     height: 8vh;
+    background-color: var(--cor-principal-primaria);
 }
 
 #title_1 {
     font-size: 32px;
     letter-spacing: 3px;
-    color: #333;
+    /* color: #333; */
+    color: snow;
     align-content: center;
 }
 
@@ -38,18 +42,34 @@ header {
     flex-direction: row;
 }
 .menu-li {
+    font-size: .9rem;
     letter-spacing: 3px;
     margin-left: 32px;
 }
 
 /* --- Links da nav --- */
 .menu-li a {
-    color: var(--cor-principal-roxo01);
+    font-weight: bold;
+    color: snow;
     text-decoration: none;
     transition: 0.3s;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    border-radius: 5px;
 }
 .menu-li a:hover {
     opacity: 0.7;
+}
+
+/* --- Sombra (Linha) --- */
+.div-header-linha {
+    width: 100%;
+    height: .1rem;
+    position: absolute;
+    align-self: end;
+    box-shadow: 0px 17px 29px 0px var(--cor-principal-escuro);
 }
 
 /* ===== Main ===== */
@@ -117,7 +137,7 @@ main {
     align-self: flex-end;
 }
 #ipt_saveParameter {
-    accent-color: var(--cor-principal-roxo01);
+    accent-color: var(--cor-principal-primaria);
 }
 #lbl_saveParameter {
     user-select: none;
@@ -125,7 +145,7 @@ main {
 
 .btn {
     height: 100%;
-    background: var(--cor-principal-roxo01);
+    background: var(--cor-principal-brilho);
     color: white;
     border: none;
     padding: 12px;
@@ -135,7 +155,7 @@ main {
     transition: 0.3s;
     width: 25%;
 }
-.btn:not(:disabled):hover { background: var(--cor-principal-roxo02); } /* apenas para botões ativos */
+.btn:not(:disabled):hover { background: var(--cor-principal-escuro); } /* apenas para botões ativos */
 
 #btn_verificar:disabled {
     opacity: 0.5;
@@ -166,11 +186,12 @@ thead th {
     position: sticky;
     z-index: 3;
     top: 0;
-    background-color: var(--cor-principal-roxo01);
+    background-color: var(--cor-principal-brilho);
     color: white;
     padding: 12px;
     font-weight: bold;
-    border-right: 1px solid rgba(78, 70, 229, 0.6);
+    /* border-right: 1px solid rgba(78, 70, 229, 0.6); */
+    border-right: 1px solid var(--cor-principal-primaria);
     box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
 }
 /* th:nth-child(1), td:nth-child(1) { width: 5%; }  Posição */
@@ -214,7 +235,7 @@ tr:nth-child(even) { background: rgb(251, 251, 255); /* cor alternada */ }
 }
 .params li::before {
     content: "•";
-    color: #4f46e5;
+    color: var(--cor-principal-primaria);
     font-weight: bold;
     display: inline-block;
     width: 1em; /* garantir alinhamento */
@@ -235,7 +256,7 @@ tr:nth-child(even) { background: rgb(251, 251, 255); /* cor alternada */ }
   width: 30px;
   height: 30px;
   border: 4px solid #ccc;
-  border-top: 4px solid #4f46e5;
+  border-top: 4px solid var(--cor-principal-primaria);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -262,7 +283,7 @@ tr:nth-child(even) { background: rgb(251, 251, 255); /* cor alternada */ }
     height: 70px;
     border: none;
     border-radius: 50%;
-    background: linear-gradient(135deg, #4f46e5, #6c5ce7);
+    background: var(--cor-principal-primaria);
     color: #fff;
     cursor: pointer;
     font-size: 1.3rem;
@@ -271,7 +292,7 @@ tr:nth-child(even) { background: rgb(251, 251, 255); /* cor alternada */ }
 }
 #btns_container button:hover { 
     transform: scale(1.1);
-    background: linear-gradient(135deg, #3b3cd4, #5a4edb);
+    background: var(--cor-principal-escuro);
     box-shadow: 0 8px 12px rgba(0,0,0,0.3);
 }
 
