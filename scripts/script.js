@@ -157,7 +157,9 @@ function appendRow(r) {
             <td class="position">${pos}</td>
             <td class="urls"><a href="${r.url}" target="_blank" rel="noopener">${r.url}</a></td>
             <td class="params"><ul>${paramsHTML}</ul></td>
-            <td class="status">${r.status}</td>
+            <td class="status" 
+                style="color: ${r.status === 200 ? 'var(--cor-200)' : 'var(--cor-40X)'}"
+            >${r.status}</td>
         </tr>
     `);
 }
