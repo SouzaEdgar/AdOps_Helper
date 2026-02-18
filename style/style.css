@@ -1,3 +1,9 @@
+:root {
+    --cor-principal-roxo01: rgba(78, 70, 229, 0.9); /*roxo claro*/
+    --cor-principal-roxo02: rgba(21, 16, 124, 0.9); /*roxo escuro*/
+    --cor-teste: rgb(255, 0, 0);
+}
+
 /* =====  Geral ===== */
 * {
     margin: 0;
@@ -6,21 +12,55 @@
     font-family: "Exo";
 }
 
-body {
+
+
+/* ===== Header ===== */
+header {
+    display: flex;
+    justify-content: space-around;
+    height: 8vh;
+}
+
+#title_1 {
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: #333;
+    align-content: center;
+}
+
+/* --- nav --- */
+.nav-list {
+    align-self: center;
+}
+.menu-ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.menu-li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+/* --- Links da nav --- */
+.menu-li a {
+    color: var(--cor-principal-roxo01);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.menu-li a:hover {
+    opacity: 0.7;
+}
+
+/* ===== Main ===== */
+main {
     background: #f0f2f3;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
+    min-height: 92vh;
     padding: 20px;
-}
-
-#title_1 {
-    margin-top: 25px;
-    font-size: 4rem;
-    color: #333;
-    padding-top: 2%;
 }
 
 /* ===== Formulário ===== */
@@ -77,7 +117,7 @@ body {
     align-self: flex-end;
 }
 #ipt_saveParameter {
-    accent-color: rgba(78, 70, 229, 0.9);
+    accent-color: var(--cor-principal-roxo01);
 }
 #lbl_saveParameter {
     user-select: none;
@@ -85,7 +125,7 @@ body {
 
 .btn {
     height: 100%;
-    background: rgba(78, 70, 229, 0.9);
+    background: var(--cor-principal-roxo01);
     color: white;
     border: none;
     padding: 12px;
@@ -95,7 +135,7 @@ body {
     transition: 0.3s;
     width: 25%;
 }
-.btn:not(:disabled):hover { background: rgba(21, 16, 124, 0.9); } /* apenas para botões ativos */
+.btn:not(:disabled):hover { background: var(--cor-principal-roxo02); } /* apenas para botões ativos */
 
 #btn_verificar:disabled {
     opacity: 0.5;
@@ -126,7 +166,7 @@ thead th {
     position: sticky;
     z-index: 3;
     top: 0;
-    background-color: rgba(78, 70, 229, 0.9);
+    background-color: var(--cor-principal-roxo01);
     color: white;
     padding: 12px;
     font-weight: bold;
