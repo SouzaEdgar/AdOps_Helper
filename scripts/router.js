@@ -1,5 +1,5 @@
 const routes = {
-    404: {html: "/screens/error.html", js:"./pages/404.js"},
+    404: {html: "/screens/urls.html", js:"./pages/urls.js"},
     "/": {html: "/screens/urls.html", js:"./pages/urls.js"},
     "/urls": {html: "/screens/urls.html", js:"./pages/urls.js"},
     "/tags": {html: "/screens/tags.html", js:"./pages/tags.js"},
