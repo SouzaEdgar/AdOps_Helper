@@ -18,16 +18,18 @@ export function init() {
     // ===== Verificar Parametros Salvos ===== //
     // --- Verifica CheckboxState - Checked --- //
     const checkboxState = localStorage.getItem("savedCheckboxState");
-    if (checkboxState === "true") {
-        paramCheckbox.checked = true;
+    if (paramCheckbox) {
+        if (checkboxState === "true") {
+            paramCheckbox.checked = true;
 
-        // --- Carregar os parametros (caso salvos) --- //
-        const savedParams = localStorage.getItem("savedParams");
-        if (savedParams) {
-            paramTextarea.value = savedParams
+            // --- Carregar os parametros (caso salvos) --- //
+            const savedParams = localStorage.getItem("savedParams");
+            if (savedParams) {
+                paramTextarea.value = savedParams
+            }
         }
     }
-
+    
     // --- Salvar estado checkbox --- //
     paramCheckbox.addEventListener("change", () => {
         localStorage.setItem("savedCheckboxState", paramCheckbox.checked);

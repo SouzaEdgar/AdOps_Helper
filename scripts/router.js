@@ -17,7 +17,10 @@ async function navigate(path) {
         document.getElementById("index").innerHTML = html;
 
         const modulo = await import(route.js);
-        modulo.init();
+        // jogar o modulo.init() para o final da fila de processamento, assim o HTML vai estar pronto antes dele
+        setTimeout(() => {
+            modulo.init();
+        }, 0);
     } catch (e) {
         console.error("Erro ao carregar a pagina: ", e);
     }
