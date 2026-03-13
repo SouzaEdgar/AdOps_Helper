@@ -1,9 +1,9 @@
 const routes = {
-    404: {html: "/screens/urls.html", js:"./pages/urls.js"},
-    "/": {html: "/screens/urls.html", js:"./pages/urls.js"},
-    "/urls": {html: "/screens/urls.html", js:"./pages/urls.js"},
-    "/tags": {html: "/screens/tags.html", js:"./pages/tags.js"},
-    "/text": {html: "/screens/text.html", js:"./pages/text.js"},
+    404: {html: "./screens/urls.html", js:"./scripts/pages/urls.js"},
+    "/": {html: "./screens/urls.html", js:"./scripts/pages/urls.js"},
+    "/urls": {html: "./screens/urls.html", js:"./scripts/pages/urls.js"},
+    "/tags": {html: "./screens/tags.html", js:"./scripts/pages/tags.js"},
+    "/text": {html: "./screens/text.html", js:"./scripts/pages/text.js"},
 };
 
 async function navigate(path) {

@@ -16,9 +16,9 @@ export function init() {
     const MAX_URLS = 120;
 
     // ===== Verificar Parametros Salvos ===== //
-    // --- Verifica CheckboxState - Checked --- //
     const checkboxState = localStorage.getItem("savedCheckboxState");
-    if (paramCheckbox) {
+    if (paramCheckbox && paramTextarea) {
+        // --- Verifica CheckboxState - Checked --- //
         if (checkboxState === "true") {
             paramCheckbox.checked = true;
 
@@ -28,25 +28,25 @@ export function init() {
                 paramTextarea.value = savedParams
             }
         }
+        
+        // --- Salvar estado checkbox --- //
+        paramCheckbox.addEventListener("change", () => {
+            localStorage.setItem("savedCheckboxState", paramCheckbox.checked);
+            localStorage.setItem("savedParams", paramTextarea.value); // Salvar parametros ja preenchidos!
+
+            // --- Desmarcado remove itens salvos --- //
+            if (!paramCheckbox.checked) {
+                localStorage.removeItem("savedParams");
+            }
+        });
+
+        // --- Salvar parametros (caso Checked) --- //
+        paramTextarea.addEventListener("input", () => {
+            if (paramCheckbox.checked) {
+                localStorage.setItem("savedParams", paramTextarea.value);
+            }
+        });
     }
-    
-    // --- Salvar estado checkbox --- //
-    paramCheckbox.addEventListener("change", () => {
-        localStorage.setItem("savedCheckboxState", paramCheckbox.checked);
-        localStorage.setItem("savedParams", paramTextarea.value); // Salvar parametros ja preenchidos!
-
-        // --- Desmarcado remove itens salvos --- //
-        if (!paramCheckbox.checked) {
-            localStorage.removeItem("savedParams");
-        }
-    });
-
-    // --- Salvar parametros (caso Checked) --- //
-    paramTextarea.addEventListener("input", () => {
-        if (paramCheckbox.checked) {
-            localStorage.setItem("savedParams", paramTextarea.value);
-        }
-    });
 
     // ===== Validação quantidade URLs ===== //
     urlTextarea.addEventListener("input", () => {
