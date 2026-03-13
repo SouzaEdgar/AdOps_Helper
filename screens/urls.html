@@ -1,0 +1,35 @@
+<section class="tela-urls">
+    <form method="POST" id="form-url-param" class="form-container">
+        <div id="grid_form">
+            <textarea name="url" id="txt_url" class="txt-area" placeholder="Insira a URL por linha" spellcheck="false"
+                required></textarea>
+            <div id="aviso_url" style="color: red; display: none; margin-top: 5px;"></div>
+            <textarea name="parameter" id="txt_parameter" class="txt-area"
+                placeholder="Insira o paramêtro por linha ou vírgula" spellcheck="false"></textarea>
+            <div id="div_saveParameter">
+                <input type="checkbox" name="saveParameter" id="ipt_saveParameter" value="userParameters">
+                <label for="ipt_saveParameter" id="lbl_saveParameter">Manter parâmetros salvos</label>
+            </div>
+            <button type="submit" class="btn" id="btn_verificar">Verificar</button>
+        </div>
+    </form>
+    <div class="table-container">
+        <table>
+            <thead class="apagar">
+                <tr id="linha_titulo">
+                    <th>Posição</th>
+                    <th>URL Final</th>
+                    <th>Parâmetros Encontrados</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="results_body">
+                <!-- tabela resultados -->
+            </tbody>
+        </table>
+    </div>
+    <div id="btns_container">
+        <button id="btn_up">↑</button>
+        <button id="btn_down">↓</button>
+    </div>
+</section>
