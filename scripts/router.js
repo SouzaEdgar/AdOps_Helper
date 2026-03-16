@@ -1,10 +1,12 @@
 const routes = {
-    404: {html: "./screens/urls.html", js:"./scripts/pages/urls.js"},
-    "/": {html: "./screens/urls.html", js:"./scripts/pages/urls.js"},
-    "/urls": {html: "./screens/urls.html", js:"./scripts/pages/urls.js"},
-    "/tags": {html: "./screens/tags.html", js:"./scripts/pages/tags.js"},
-    "/text": {html: "./screens/text.html", js:"./scripts/pages/text.js"},
+    404: {html: "screens/urls.html", js:"scripts/pages/urls.js"},
+    "/": {html: "screens/urls.html", js:"scripts/pages/urls.js"},
+    "/urls": {html: "screens/urls.html", js:"scripts/pages/urls.js"},
+    "/tags": {html: "screens/tags.html", js:"scripts/pages/tags.js"},
+    "/text": {html: "screens/text.html", js:"scripts/pages/text.js"},
 };
+
+console.log(window.location.hostname);
 
 async function navigate(path) {
     window.history.pushState({}, "", path);
@@ -17,19 +19,20 @@ async function navigate(path) {
         document.getElementById("index").innerHTML = html;
 
         const modulo = await import(route.js);
-        // jogar o modulo.init() para o final da fila de processamento, assim o HTML vai estar pronto antes dele
-        setTimeout(() => {
+        if(modulo.init) {                                                   // garantir a existencia
             modulo.init();
-        }, 0);
+        }
     } catch (e) {
         console.error("Erro ao carregar a pagina: ", e);
     }
 }
 
-window.onpopstate = () => navigate(window.location.pathname); /* lida com a ação de VOLTAR da pagina */
+window.onpopstate = () => navigate(window.location.pathname);               // lida com a ação de VOLTAR da pagina
 
-/* --- Carregar a pagina inicial --- */
-navigate(window.location.pathname);
+const initialPath = window.pathRedirect || window.location.pathname;        // tratar o redirect em caso de 404, ou entregar o caminho normal
+navigate(initialPath);
+
+window.pathRedirect = null;                                                 // limpar para não interferir em navegação futura
 
 document.getElementById("link_urls").addEventListener("click", (event) => {
     event.preventDefault();
