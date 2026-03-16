@@ -1,9 +1,9 @@
 const routes = {
-    404: {html: "screens/urls.html", js:"scripts/pages/urls.js"},
-    "/": {html: "screens/urls.html", js:"scripts/pages/urls.js"},
-    "/urls": {html: "screens/urls.html", js:"scripts/pages/urls.js"},
-    "/tags": {html: "screens/tags.html", js:"scripts/pages/tags.js"},
-    "/text": {html: "screens/text.html", js:"scripts/pages/text.js"},
+    404: {html: "screens/urls.html", js:"/pages/urls.js"},
+    "/": {html: "screens/urls.html", js:"/pages/urls.js"},
+    "/urls": {html: "screens/urls.html", js:"/pages/urls.js"},
+    "/tags": {html: "screens/tags.html", js:"/pages/tags.js"},
+    "/text": {html: "screens/text.html", js:"/pages/text.js"},
 };
 
 console.log(window.location.hostname);
@@ -18,7 +18,7 @@ async function navigate(path) {
         const html = await resp.text();
         document.getElementById("index").innerHTML = html;
 
-        const modulo = await import(route.js);
+        const modulo = await import(`./${route.js}`);
         if(modulo.init) {                                                   // garantir a existencia
             modulo.init();
         }
