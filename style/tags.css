@@ -1,0 +1,39 @@
+/* === Section - base do grid === */
+/* .tela-tags {
+    display: grid;
+} */
+
+/* === Text Area === */ 
+/* .div_txtAreaTag {
+    grid-area: adTag;
+} */
+
+/* === Radio (Tag Type) === */
+/* .div_tagType {
+    grid-area: tagTypeRadio;
+} */
+
+/* === Button === */
+/* .btnTag {
+    grid-area: btnTag;
+    width: 50px;
+} */
+
+/* === Preview (iframe) === */
+ .preview {
+    /* grid-area: tagPreview; */
+    padding: 25px;
+    margin: 10px;
+    width: 100%;
+    height: 1000px;
+}
+
+/* === Grid Area - Tela === */
+/* .grid-template-areas {
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 150px 50px 50px;
+	grid-template-areas:
+		"adTag          preview"
+		"tagTypeRadio   preview"
+		"btnTag         preview";
+} */

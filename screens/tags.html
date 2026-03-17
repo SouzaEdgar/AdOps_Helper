@@ -1,3 +1,20 @@
-<section class="tela-tags">
-    <p>EM CONSTRUÇÃO</p>
+<section class="tela-tags grid-template-areas">
+    <div class="div_txtAreaTag">
+        <textarea id="txtTag" placeholder="digita ai"></textarea>
+    </div>
+    <button class="btnTag" id="btnVerificarTag">CLICAR</button>
+
+    <div class="div_tagType" id="div_tagType">
+        <input type="radio" name="tagType" id="ipt_typeDisplay" value="typeDisplay" checked>
+        <label for="ipt_typeDisplay" id="lbl_typeDisplay">Display</label>
+
+        <input type="radio" name="tagType" id="ipt_typeVideo" value="typeVideo">
+        <label for="ipt_typeVideo" id="lbl_typeVideo">Video</label>
+
+        <input type="radio" name="tagType" id="ipt_typeAudio" value="typeAudio">
+        <label for="ipt_typeAudio" id="lbl_typeAudio">Audio</label>
+    </div>
+
+    <div class="preview" id="preview">
+    </div>
 </section>
