@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: transparent; }
+    </style>
+</head>
+<body>
+    <script>
+        const tag = localStorage.getItem('tag_preview');
+
+        if(tag) {
+            document.open();
+            document.write(tag);
+            document.close();
+            localStorage.removeItem('tag_preview');
+        } else {
+            document.write("Nenhuma tag encontrada.");
+        }
+    </script>
+</body>
+</html>

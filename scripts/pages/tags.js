@@ -5,29 +5,23 @@ export function init() {
 
 
     btnVerificar.addEventListener("click", () => {
-        console.log("clicou no botão")
-        const tagCodigo = txtArea.value;                            // Trabalhar com a separação para diversar TAGS
+        const tagCodigo = txtArea.value;
         if (!tagCodigo) return alert("Cole uma tag primeiro!");
 
-        // --- Limpar o container para uma nova tag --- //
-        preview.innerHTML = "";
+        preview.innerHTML = "";                                     // --- limpar o container para uma nova tag
+        localStorage.setItem('tag_preview', tagCodigo);             // --- salvar as tags
 
         // --- Criar o iframe "avo" (container para isolamento) --- //
         const iframe = document.createElement("iframe");
         iframe.className = "iframeTag"
         iframe.style.width = "100%";
-        iframe.style.height = "100%";
+        iframe.style.minHeight = "250px";
         iframe.style.border = "1px dashed #ccc";
+        iframe.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
+        //iframe.setAttribute('sandbox', 'allow-scripts allow-popups allow-same-origin');               // para teste
+
+        iframe.src = "preview.html";
 
         preview.appendChild(iframe);
-        console.log("gerou o iframe base");
-
-        const htmlCompleto = `<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;">${tagCodigo}</body></html>`;
-        if (iframe.src.startsWith('blob:')) {           // limpar antes de criar um novo
-            URL.revokeObjectURL(iframe.src);
-        }
-        const blob = new Blob([htmlCompleto], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-        iframe.src = url;
     });
 }
