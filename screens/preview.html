@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: transparent; }
-    </style>
 </head>
 <body>
     <script>
-        const tag = localStorage.getItem('tag_preview');
+        window.addEventListener("message", (event) => {
+            const tag = event.data;
 
-        if(tag) {
-            document.open();
-            document.write(tag);
-            document.close();
-            localStorage.removeItem('tag_preview');
-        } else {
-            document.write("Nenhuma tag encontrada.");
-        }
+            if (tag) {
+                document.open();
+                document.write(tag);
+                document.close();
+            } else {
+                document.body.innerHTML = "Nenhuma tag recebida.";
+            }
+        });
     </script>
 </body>
 </html>
