@@ -20,7 +20,7 @@ O projeto permite visualizar a URL final do redirect, verificar status HTTP e an
 - CSS
 - Javascript
 
-  ###└ Backend(API)
+  ### └ Backend(API)
   - Python
   - FastAPI
   - HTTPX
