@@ -26,6 +26,6 @@ O projeto permite visualizar a URL final do redirect, verificar status HTTP e an
   - HTTPX
  
 
-
+##
 Projeto em desenvolvimento e utilizado para estudos, aprendizagem sobre APIs REST e automação de fluxos relacionados a AdOps.
   
